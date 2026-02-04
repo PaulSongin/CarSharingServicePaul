@@ -32,3 +32,18 @@ GET http://localhost:8080/api/cars
 ### 6. НЕУДАЧНОЕ бронирование (Тест защиты)
 POST http://localhost:8080/api/bookings?userId=1&carId=1
 Content-Type: application/json
+
+### Тест валидации: Пустая модель и отрицательная цена
+POST http://localhost:8080/api/cars
+Content-Type: application/json
+
+{
+  "brand": "Lada",
+  "model": "",
+  "pricePerDay": -500.00
+}
+
+### Тест ошибки: Бронь машины ID=999
+POST http://localhost:8080/api/bookings?userId=1&carId=999
+Content-Type: application/json
+
