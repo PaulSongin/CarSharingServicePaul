@@ -23,8 +23,10 @@ class BookingServiceTest {
 
     @Mock
     private BookingRepository bookingRepository;
+
     @Mock
     private CarRepository carRepository;
+
     @Mock
     private UserRepository userRepository;
 
@@ -38,7 +40,7 @@ class BookingServiceTest {
 
         Car car = new Car();
         car.setId(1L);
-        car.setAvailable(true); // Машина свободна!
+        car.setAvailable(true);
 
         when(userRepository.findById(1L)).thenReturn(Optional.of(user));
         when(carRepository.findById(1L)).thenReturn(Optional.of(car));
@@ -46,16 +48,16 @@ class BookingServiceTest {
 
         Booking result = bookingService.createBooking(1L, 1L);
 
-        assertNotNull(result); // Бронь создалась
-        assertFalse(car.isAvailable()); // Статус машины поменялся на false!
-        verify(bookingRepository, times(1)).save(any()); // Метод save был вызван 1 раз
+        assertNotNull(result);
+        assertFalse(car.isAvailable());
+        verify(bookingRepository, times(1)).save(any());
     }
 
     @Test
     void createBooking_Fail_WhenCarBusy() {
         Car busyCar = new Car();
         busyCar.setId(2L);
-        busyCar.setAvailable(false); // Машина занята!
+        busyCar.setAvailable(false);
 
         when(carRepository.findById(2L)).thenReturn(Optional.of(busyCar));
 

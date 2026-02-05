@@ -7,14 +7,18 @@ import com.paul.carsharing.repository.BookingRepository;
 import com.paul.carsharing.repository.CarRepository;
 import com.paul.carsharing.repository.UserRepository;
 import jakarta.transaction.Transactional;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
 @Service
-@RequiredArgsConstructor
 public class BookingService {
+
+    public BookingService(BookingRepository bookingRepository, CarRepository carRepository, UserRepository userRepository) {
+        this.bookingRepository = bookingRepository;
+        this.carRepository = carRepository;
+        this.userRepository = userRepository;
+    }
 
     private final BookingRepository bookingRepository;
     private final CarRepository carRepository;
