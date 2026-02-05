@@ -1,35 +1,56 @@
 # 🚗 Car Sharing Service API
 
-A RESTful API for a car rental system.
-This pet project demonstrates backend development skills using **Spring Boot 3**, **PostgreSQL**, and **Hibernate**.
+A professional RESTful API for a car rental system, built with **Java 21** and **Spring Boot 3.4.2**.
+This project demonstrates a clean architecture, reliable data handling, and full containerization.
+
+## 🌟 Key Features
+*   **Complete Booking Flow:** Create users, add cars, and manage rentals with real-time availability tracking.
+*   **Transactional Integrity:** Uses `@Transactional` to ensure data consistency during the booking process.
+*   **Advanced Validation:** Input data is strictly validated using DTOs (Data Transfer Objects) and `jakarta.validation`.
+*   **Global Error Handling:** Friendly and informative JSON error responses instead of standard stack traces.
+*   **Unit Testing:** Core business logic is covered by tests using **JUnit 5** and **Mockito**.
+*   **Full Dockerization:** Ready to run anywhere with a single command.
 
 ## 🛠 Tech Stack
-*   **Java 17+**
-*   **Spring Boot 3** (Web, Data JPA, Validation)
-*   **PostgreSQL** (Relational Database)
-*   **Hibernate** (ORM)
-*   **Lombok** (Boilerplate code reduction)
-*   **Swagger / OpenAPI** (API Documentation)
-*   **Docker** (Containerization)
+*   **Language:** Java 21 (LTS)
+*   **Framework:** Spring Boot 3.4.2
+*   **Database:** PostgreSQL 15
+*   **ORM:** Hibernate / Spring Data JPA
+*   **Documentation:** Swagger UI (OpenAPI 3)
+*   **Containerization:** Docker & Docker Compose
+*   **Build Tool:** Maven
 
-## 🚀 Key Features
-1.  **Car Management:**
-    *   Add new vehicles to the fleet.
-    *   View available cars.
-    *   Automatic status tracking (Available / Booked).
-2.  **Booking System:**
-    *   Book a car with availability validation.
-    *   **Transactional integrity:** Prevents double-booking (race conditions).
-    *   Automatic status updates for cars upon reservation.
-3.  **User Management:**
-    *   Basic user registration and data handling.
+## 📋 Architecture
+The project follows a classic three-tier architecture for better maintainability:
+1.  **Controller Layer:** Handles HTTP requests and DTO mapping.
+2.  **Service Layer:** Contains business logic and transactional boundaries.
+3.  **Repository Layer:** Manages database interactions via JPA.
 
-## 📄 API Documentation
-Once the application is running, you can access the interactive Swagger UI documentation here:
-👉 `http://localhost:8080/swagger-ui/index.html`
+## 🚀 Getting Started
 
-## ⚙️ How to Run
+### Prerequisites
+*   Docker Desktop installed and running.
 
-### 1. Clone the repository
-```bash
-git clone https://github.com/PaulSongin/CarSharingServicePaul.git
+### Installation & Run
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
+Launch everything using Docker Compose:
+code
+Bash
+docker-compose up --build
+The app will be available at http://localhost:8080.
+📄 API Documentation
+Explore and test the API directly through the Swagger UI:
+👉 http://localhost:8080/swagger-ui/index.html
+🧪 Testing
+To run the unit tests locally:
+code
+Bash
+./mvnw test
+
+Author: Paul Songin
+Contacts:
+
+    email: songinpavel2006@gmail.com
+    Telegram: @PavlikZhid
